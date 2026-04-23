@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Manajemen Pengguna | SI-CUTI PN Kediri</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-tertiary": "#ffffff",
+              "tertiary-fixed": "#cae6ff",
+              "surface-container-lowest": "#ffffff",
+              "surface-container": "#edeef2",
+              "on-error-container": "#93000a",
+              "secondary-fixed-dim": "#f6bd50",
+              "outline-variant": "#e0bfbc",
+              "on-primary": "#ffffff",
+              "on-tertiary-fixed-variant": "#004b70",
+              "tertiary-fixed-dim": "#96ccf8",
+              "secondary-fixed": "#ffdea9",
+              "on-secondary-fixed-variant": "#5e4100",
+              "inverse-primary": "#ffb3ac",
+              "surface-container-highest": "#e1e2e6",
+              "primary-fixed": "#ffdad6",
+              "tertiary": "#003450",
+              "on-primary-fixed-variant": "#8a1a1a",
+              "primary-container": "#8b1a1a",
+              "on-tertiary-fixed": "#001e30",
+              "secondary-container": "#fdc355",
+              "secondary": "#7d5800",
+              "surface-bright": "#f8f9fd",
+              "inverse-surface": "#2e3134",
+              "surface": "#f8f9fd",
+              "on-primary-container": "#ff9a91",
+              "on-error": "#ffffff",
+              "surface-variant": "#e1e2e6",
+              "on-tertiary-container": "#86bce7",
+              "on-secondary-fixed": "#271900",
+              "on-primary-fixed": "#410003",
+              "primary-fixed-dim": "#ffb3ac",
+              "on-surface": "#191c1f",
+              "on-secondary": "#ffffff",
+              "surface-tint": "#ac322e",
+              "error": "#ba1a1a",
+              "background": "#f8f9fd",
+              "inverse-on-surface": "#eff1f5",
+              "surface-dim": "#d9dade",
+              "on-background": "#191c1f",
+              "primary": "#690008",
+              "surface-container-high": "#e7e8ec",
+              "surface-container-low": "#f2f3f7",
+              "outline": "#8c716e",
+              "on-surface-variant": "#58413f",
+              "on-secondary-container": "#725000",
+              "error-container": "#ffdad6",
+              "tertiary-container": "#004c71"
+            },
+            fontFamily: {
+              "headline": ["Inter"],
+              "body": ["Inter"],
+              "label": ["Inter"],
+              "mono": ["JetBrains Mono"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .bg-maroon-gradient {
+            background: linear-gradient(135deg, #690008 0%, #8b1a1a 100%);
+        }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #e1e2e6; border-radius: 10px; }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface antialiased">
+<!-- Sidebar Navigation -->
+<aside class="fixed left-0 top-0 bottom-0 w-64 flex flex-col z-50 bg-slate-50 dark:bg-slate-950">
+<div class="text-2xl font-black text-red-900 dark:text-red-500 px-6 py-8">
+            SI-CUTI
+            <div class="text-[10px] font-medium tracking-[0.2em] text-on-surface-variant/60 uppercase mt-1">Judicial Leave System</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="text-slate-500 dark:text-slate-400 px-8 py-3 flex items-center gap-3 hover:text-red-800 transition-all group" href="#">
+<span class="material-symbols-outlined transition-transform group-hover:scale-110" data-icon="dashboard">dashboard</span>
+<span class="font-medium text-sm">Dashboard</span>
+</a>
+<a class="text-slate-500 dark:text-slate-400 px-8 py-3 flex items-center gap-3 hover:text-red-800 transition-all group" href="#">
+<span class="material-symbols-outlined transition-transform group-hover:scale-110" data-icon="rule">rule</span>
+<span class="font-medium text-sm">Verification</span>
+</a>
+<a class="bg-white dark:bg-slate-900 text-red-900 dark:text-red-400 shadow-sm rounded-l-full ml-4 pl-4 py-3 border-r-4 border-amber-500 flex items-center gap-3" href="#">
+<span class="material-symbols-outlined" data-icon="badge">badge</span>
+<span class="font-medium text-sm">Employee Data</span>
+</a>
+<a class="text-slate-500 dark:text-slate-400 px-8 py-3 flex items-center gap-3 hover:text-red-800 transition-all group" href="#">
+<span class="material-symbols-outlined transition-transform group-hover:scale-110" data-icon="analytics">analytics</span>
+<span class="font-medium text-sm">Reports</span>
+</a>
+<a class="text-slate-500 dark:text-slate-400 px-8 py-3 flex items-center gap-3 hover:text-red-800 transition-all group" href="#">
+<span class="material-symbols-outlined transition-transform group-hover:scale-110" data-icon="settings">settings</span>
+<span class="font-medium text-sm">Settings</span>
+</a>
+</nav>
+<div class="p-6 border-t border-slate-200 dark:border-slate-800 space-y-2">
+<a class="text-slate-500 dark:text-slate-400 px-2 py-2 flex items-center gap-3 hover:text-red-800 text-xs" href="#">
+<span class="material-symbols-outlined text-lg" data-icon="help_outline">help_outline</span> Help Center
+            </a>
+<a class="text-slate-500 dark:text-slate-400 px-2 py-2 flex items-center gap-3 hover:text-error text-xs" href="#">
+<span class="material-symbols-outlined text-lg" data-icon="logout">logout</span> Logout
+            </a>
+</div>
+</aside>
+<!-- Header Navigation -->
+<header class="fixed top-0 right-0 left-64 h-16 flex justify-between items-center px-8 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md z-40 shadow-sm dark:shadow-none">
+<div class="flex items-center gap-6">
+<h1 class="text-xl font-bold tracking-tighter text-red-900 dark:text-red-500">Manajemen Pengguna</h1>
+<nav class="hidden lg:flex items-center gap-6">
+<a class="text-slate-600 dark:text-slate-400 hover:text-red-800 font-medium text-sm" href="#">Dashboard</a>
+<a class="text-red-900 dark:text-red-400 font-semibold border-b-2 border-amber-500 text-sm py-5" href="#">Verification</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-red-800 font-medium text-sm" href="#">Reports</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 hover:bg-slate-50 rounded-full transition-colors text-slate-600">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<div class="h-8 w-px bg-slate-100 mx-2"></div>
+<div class="flex items-center gap-3 cursor-pointer group">
+<div class="text-right">
+<p class="text-sm font-semibold text-red-900">Admin Kepegawaian</p>
+<p class="text-[10px] text-slate-500 font-mono">NIP. 198203112009041002</p>
+</div>
+<div class="w-10 h-10 rounded-full bg-slate-200 border-2 border-white shadow-sm overflow-hidden">
+<img alt="Avatar" class="w-full h-full object-cover" data-alt="professional portrait of a court official in formal attire high quality photography" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCAxZfrTpTk47TpCUlfH0rRHGstbQgeppzeJU2Tdumylw4zu6Cg3_VewzdIh9BN7_2yj_dQvl60Gtgk0ZhONDxl-j8x1V5nQy2Cmyo982p7XYBIxYScB5qFc9OJH0oFY2-2fLmJLMFYXmLseeiR_jUINFp-ZbFQbm4LfyT8iynDgUKhyYl2fJ4K647kRZG0JqPrcC56OF7WpRtagPQMDmLkD1EFTEtYfUuHaj4wHTK8esfgey3LMF6Umx5m-UcjTxSdhdc5XI8pagQ"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-64 pt-24 px-8 pb-12">
+<div class="max-w-7xl mx-auto">
+<!-- Table Header & Actions -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8">
+<div class="space-y-4 flex-1">
+<div class="relative group max-w-md">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 transition-colors group-focus-within:text-primary">search</span>
+<input class="w-full pl-12 pr-4 py-3 bg-white border-0 rounded-xl shadow-sm focus:ring-2 focus:ring-primary/20 text-sm placeholder:text-slate-400 font-body" placeholder="Cari nama, NIP, atau email..." type="text"/>
+</div>
+<div class="flex flex-wrap items-center gap-3">
+<select class="bg-surface-container-low border-0 text-xs font-semibold px-4 py-2 rounded-lg text-slate-600 focus:ring-0">
+<option>Semua Role</option>
+<option>Pegawai</option>
+<option>Atasan</option>
+<option>Kepegawaian</option>
+<option>Pimpinan</option>
+</select>
+<select class="bg-surface-container-low border-0 text-xs font-semibold px-4 py-2 rounded-lg text-slate-600 focus:ring-0">
+<option>Semua Status</option>
+<option>Aktif</option>
+<option>Nonaktif</option>
+</select>
+<select class="bg-surface-container-low border-0 text-xs font-semibold px-4 py-2 rounded-lg text-slate-600 focus:ring-0">
+<option>Semua Unit</option>
+<option>Kepaniteraan</option>
+<option>Kesekretariatan</option>
+</select>
+</div>
+</div>
+<button class="bg-maroon-gradient text-white px-6 py-3 rounded-xl shadow-lg shadow-primary/20 flex items-center gap-2 hover:opacity-90 active:scale-95 transition-all">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+<span class="font-semibold text-sm">+ Tambah Pengguna</span>
+</button>
+</div>
+<!-- Table Container -->
+<div class="bg-white rounded-2xl shadow-sm overflow-hidden">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-slate-50/50 border-b border-slate-100">
+<th class="px-6 py-4 text-[11px] font-bold text-slate-400 uppercase tracking-widest">No</th>
+<th class="px-6 py-4 text-[11px] font-bold text-slate-400 uppercase tracking-widest">Nama &amp; Jabatan</th>
+<th class="px-6 py-4 text-[11px] font-bold text-slate-400 uppercase tracking-widest">NIP</th>
+<th class="px-6 py-4 text-[11px] font-bold text-slate-400 uppercase tracking-widest">Role</th>
+<th class="px-6 py-4 text-[11px] font-bold text-slate-400 uppercase tracking-widest">Status</th>
+<th class="px-6 py-4 text-[11px] font-bold text-slate-400 uppercase tracking-widest text-right">Action</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-50">
+<!-- Row 1 -->
+<tr class="hover:bg-slate-50/80 transition-colors group">
+<td class="px-6 py-5 font-mono text-xs text-slate-400">01</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-full bg-slate-100 flex items-center justify-center text-primary font-bold text-xs">AS</div>
+<div>
+<p class="font-semibold text-sm text-slate-800">Achmad Syarifuddin, S.H.</p>
+<p class="text-xs text-slate-500">Panitera Muda Hukum</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-5 font-mono text-xs text-slate-600">197508122002121001</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-2 px-3 py-1 bg-blue-50 text-blue-700 rounded-full w-fit">
+<span class="w-1.5 h-1.5 rounded-full bg-blue-500"></span>
+<span class="text-[10px] font-bold uppercase tracking-wider">Atasan</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-2 text-tertiary-container">
+<span class="material-symbols-outlined text-sm" data-icon="check_circle" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="text-xs font-medium">Aktif</span>
+</div>
+</td>
+<td class="px-6 py-5 text-right">
+<button class="p-2 hover:bg-slate-200 rounded-lg transition-colors text-slate-400 group-hover:text-primary">
+<span class="material-symbols-outlined text-lg" data-icon="bolt">bolt</span>
+</button>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-slate-50/80 transition-colors group">
+<td class="px-6 py-5 font-mono text-xs text-slate-400">02</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-full bg-amber-50 flex items-center justify-center text-amber-700 font-bold text-xs">BK</div>
+<div>
+<p class="font-semibold text-sm text-slate-800">Bambang Kusumo, M.H.</p>
+<p class="text-xs text-slate-500">Ketua Pengadilan</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-5 font-mono text-xs text-slate-600">196801011994031005</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-2 px-3 py-1 bg-amber-50 text-amber-700 rounded-full w-fit">
+<span class="material-symbols-outlined text-[12px]" data-icon="stars" data-weight="fill" style="font-variation-settings: 'FILL' 1;">stars</span>
+<span class="text-[10px] font-bold uppercase tracking-wider">Pimpinan</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-2 text-tertiary-container">
+<span class="material-symbols-outlined text-sm" data-icon="check_circle" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="text-xs font-medium">Aktif</span>
+</div>
+</td>
+<td class="px-6 py-5 text-right">
+<button class="p-2 hover:bg-slate-200 rounded-lg transition-colors text-slate-400 group-hover:text-primary">
+<span class="material-symbols-outlined text-lg" data-icon="bolt">bolt</span>
+</button>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-slate-50/80 transition-colors group">
+<td class="px-6 py-5 font-mono text-xs text-slate-400">03</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-full bg-emerald-50 flex items-center justify-center text-emerald-700 font-bold text-xs">DR</div>
+<div>
+<p class="font-semibold text-sm text-slate-800">Dewi Rahayu, A.Md.</p>
+<p class="text-xs text-slate-500">Staf Kepegawaian</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-5 font-mono text-xs text-slate-600">199204152018012003</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-2 px-3 py-1 bg-emerald-50 text-emerald-700 rounded-full w-fit">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+<span class="text-[10px] font-bold uppercase tracking-wider">Pegawai</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-2 text-tertiary-container">
+<span class="material-symbols-outlined text-sm" data-icon="check_circle" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="text-xs font-medium">Aktif</span>
+</div>
+</td>
+<td class="px-6 py-5 text-right">
+<button class="p-2 hover:bg-slate-200 rounded-lg transition-colors text-slate-400 group-hover:text-primary">
+<span class="material-symbols-outlined text-lg" data-icon="bolt">bolt</span>
+</button>
+</td>
+</tr>
+<!-- Row 4 (Non-aktif) -->
+<tr class="hover:bg-slate-50/80 transition-colors group opacity-70">
+<td class="px-6 py-5 font-mono text-xs text-slate-400">04</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-full bg-slate-200 flex items-center justify-center text-slate-500 font-bold text-xs">ES</div>
+<div>
+<p class="font-semibold text-sm text-slate-800">Eko Setiawan, S.Kom.</p>
+<p class="text-xs text-slate-500">Pranata Komputer Ahli Pertama</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-5 font-mono text-xs text-slate-600">198809222015031002</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-2 px-3 py-1 bg-slate-100 text-slate-600 rounded-full w-fit border border-slate-200">
+<span class="w-1.5 h-1.5 rounded-full bg-slate-400"></span>
+<span class="text-[10px] font-bold uppercase tracking-wider">Pegawai</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-2 text-slate-400">
+<span class="material-symbols-outlined text-sm" data-icon="cancel">cancel</span>
+<span class="text-xs font-medium">Nonaktif</span>
+</div>
+</td>
+<td class="px-6 py-5 text-right">
+<button class="p-2 hover:bg-slate-200 rounded-lg transition-colors text-slate-400 group-hover:text-primary">
+<span class="material-symbols-outlined text-lg" data-icon="bolt">bolt</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="px-6 py-4 bg-slate-50/30 flex items-center justify-between border-t border-slate-100">
+<p class="text-xs text-slate-500">Menampilkan 1-4 dari 28 pengguna</p>
+<div class="flex items-center gap-2">
+<button class="w-8 h-8 flex items-center justify-center rounded-lg border border-slate-200 text-slate-400 hover:bg-white transition-colors">
+<span class="material-symbols-outlined text-sm">chevron_left</span>
+</button>
+<button class="w-8 h-8 flex items-center justify-center rounded-lg bg-primary text-white font-bold text-xs shadow-md shadow-primary/20">1</button>
+<button class="w-8 h-8 flex items-center justify-center rounded-lg border border-slate-200 text-slate-600 hover:bg-white transition-colors text-xs font-bold">2</button>
+<button class="w-8 h-8 flex items-center justify-center rounded-lg border border-slate-200 text-slate-600 hover:bg-white transition-colors text-xs font-bold">3</button>
+<button class="w-8 h-8 flex items-center justify-center rounded-lg border border-slate-200 text-slate-400 hover:bg-white transition-colors">
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Modal Overlay -->
+<div class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-[100] flex items-center justify-center p-4">
+<!-- Modal Content -->
+<div class="bg-white w-full max-w-3xl rounded-2xl shadow-2xl overflow-hidden max-h-[921px] flex flex-col">
+<!-- Modal Header -->
+<div class="px-8 py-6 bg-slate-50 border-b border-slate-100 flex items-center justify-between">
+<div>
+<h2 class="text-xl font-bold text-red-900">Tambah Pengguna Baru</h2>
+<p class="text-xs text-slate-500 mt-0.5">Daftarkan personil baru ke dalam sistem SI-CUTI</p>
+</div>
+<button class="p-2 hover:bg-slate-200 rounded-full transition-colors text-slate-400">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<!-- Modal Body (Scrollable) -->
+<div class="flex-1 overflow-y-auto px-8 py-8 space-y-10">
+<!-- Data Dasar Section -->
+<section class="space-y-6">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-primary-fixed flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-xl" data-icon="person">person</span>
+</div>
+<h3 class="font-bold text-slate-800">Data Dasar Kepegawaian</h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-1.5 md:col-span-2">
+<label class="text-[11px] font-bold text-slate-500 uppercase tracking-wider px-1">NIP (Nomor Induk Pegawai)</label>
+<div class="flex gap-2">
+<input class="flex-1 bg-surface-container-low border-0 rounded-lg px-4 py-3 text-sm font-mono focus:ring-2 focus:ring-primary/20" placeholder="Contoh: 19820311..." type="text"/>
+<button class="bg-amber-100 text-amber-800 px-4 py-2 rounded-lg text-xs font-bold flex items-center gap-2 hover:bg-amber-200 transition-colors whitespace-nowrap">
+<span class="material-symbols-outlined text-sm" data-icon="sync">sync</span>
+                                    Sinkron SIKEP
+                                </button>
+</div>
+</div>
+<div class="space-y-1.5 md:col-span-2">
+<label class="text-[11px] font-bold text-slate-500 uppercase tracking-wider px-1">Nama Lengkap &amp; Gelar</label>
+<input class="w-full bg-surface-container-low border-0 rounded-lg px-4 py-3 text-sm focus:ring-2 focus:ring-primary/20" placeholder="Ketik nama lengkap beserta gelar..." type="text"/>
+</div>
+<div class="space-y-1.5">
+<label class="text-[11px] font-bold text-slate-500 uppercase tracking-wider px-1">Jabatan</label>
+<select class="w-full bg-surface-container-low border-0 rounded-lg px-4 py-3 text-sm focus:ring-2 focus:ring-primary/20">
+<option disabled="" selected="">Pilih Jabatan</option>
+<option>Hakim Madya</option>
+<option>Panitera Muda</option>
+<option>Sekretaris</option>
+<option>Pranata Komputer</option>
+</select>
+</div>
+<div class="space-y-1.5">
+<label class="text-[11px] font-bold text-slate-500 uppercase tracking-wider px-1">Golongan / Ruang</label>
+<select class="w-full bg-surface-container-low border-0 rounded-lg px-4 py-3 text-sm focus:ring-2 focus:ring-primary/20 font-mono">
+<option disabled="" selected="">Pilih Golongan</option>
+<option>IV/a (Pembina)</option>
+<option>III/d (Penata Tk. I)</option>
+<option>III/c (Penata)</option>
+</select>
+</div>
+<div class="space-y-1.5">
+<label class="text-[11px] font-bold text-slate-500 uppercase tracking-wider px-1">Email Kedinasan</label>
+<input class="w-full bg-surface-container-low border-0 rounded-lg px-4 py-3 text-sm focus:ring-2 focus:ring-primary/20" placeholder="nama@pn-kediri.go.id" type="email"/>
+</div>
+<div class="space-y-1.5">
+<label class="text-[11px] font-bold text-slate-500 uppercase tracking-wider px-1">Nomor WhatsApp/HP</label>
+<input class="w-full bg-surface-container-low border-0 rounded-lg px-4 py-3 text-sm focus:ring-2 focus:ring-primary/20" placeholder="08..." type="text"/>
+</div>
+</div>
+</section>
+<!-- Pengaturan Akses Section -->
+<section class="space-y-6">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-amber-100 flex items-center justify-center text-amber-700">
+<span class="material-symbols-outlined text-xl" data-icon="key">key</span>
+</div>
+<h3 class="font-bold text-slate-800">Pengaturan Hak Akses</h3>
+</div>
+<div class="space-y-6">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+<label class="relative flex flex-col items-center gap-2 p-4 rounded-xl border-2 border-slate-100 cursor-pointer hover:border-emerald-200 transition-all group has-[:checked]:border-emerald-500 has-[:checked]:bg-emerald-50/50">
+<input class="hidden peer" name="role" type="radio"/>
+<span class="material-symbols-outlined text-slate-400 group-hover:text-emerald-500 peer-checked:text-emerald-500" data-icon="person">person</span>
+<span class="text-[10px] font-bold uppercase tracking-widest text-slate-500">Pegawai</span>
+</label>
+<label class="relative flex flex-col items-center gap-2 p-4 rounded-xl border-2 border-slate-100 cursor-pointer hover:border-blue-200 transition-all group has-[:checked]:border-blue-500 has-[:checked]:bg-blue-50/50">
+<input class="hidden peer" name="role" type="radio"/>
+<span class="material-symbols-outlined text-slate-400 group-hover:text-blue-500 peer-checked:text-blue-500" data-icon="groups">groups</span>
+<span class="text-[10px] font-bold uppercase tracking-widest text-slate-500">Atasan</span>
+</label>
+<label class="relative flex flex-col items-center gap-2 p-4 rounded-xl border-2 border-slate-100 cursor-pointer hover:border-primary/20 transition-all group has-[:checked]:border-primary has-[:checked]:bg-primary/5">
+<input class="hidden peer" name="role" type="radio"/>
+<span class="material-symbols-outlined text-slate-400 group-hover:text-primary peer-checked:text-primary" data-icon="shield_person">shield_person</span>
+<span class="text-[10px] font-bold uppercase tracking-widest text-slate-500">Admin</span>
+</label>
+<label class="relative flex flex-col items-center gap-2 p-4 rounded-xl border-2 border-slate-100 cursor-pointer hover:border-amber-200 transition-all group has-[:checked]:border-amber-500 has-[:checked]:bg-amber-50/50">
+<input class="hidden peer" name="role" type="radio"/>
+<span class="material-symbols-outlined text-slate-400 group-hover:text-amber-500 peer-checked:text-amber-500" data-icon="stars" data-weight="fill" style="font-variation-settings: 'FILL' 1;">stars</span>
+<span class="text-[10px] font-bold uppercase tracking-widest text-slate-500">Pimpinan</span>
+</label>
+</div>
+<div class="space-y-1.5">
+<label class="text-[11px] font-bold text-slate-500 uppercase tracking-wider px-1">Atasan Langsung (Penilai)</label>
+<select class="w-full bg-surface-container-low border-0 rounded-lg px-4 py-3 text-sm focus:ring-2 focus:ring-primary/20">
+<option disabled="" selected="">Cari &amp; Pilih Nama Atasan</option>
+<option>Achmad Syarifuddin, S.H. (Panmud Hukum)</option>
+<option>Bambang Kusumo, M.H. (Ketua PN)</option>
+</select>
+</div>
+<div class="bg-slate-50 rounded-xl p-4 flex items-start gap-3 border border-slate-100">
+<span class="material-symbols-outlined text-amber-600" data-icon="info">info</span>
+<div class="space-y-1">
+<p class="text-xs font-bold text-slate-700">Informasi Kata Sandi</p>
+<p class="text-[11px] text-slate-500 leading-relaxed">
+                                    Sistem akan melakukan <span class="font-semibold italic">auto-generate</span> kata sandi awal menggunakan format: <br/>
+<code class="bg-white px-1.5 py-0.5 rounded border border-slate-200 font-mono text-primary font-bold">NIP + Tanggal Lahir (DDMMYYYY)</code>
+</p>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Modal Footer -->
+<div class="px-8 py-6 bg-white border-t border-slate-100 flex items-center justify-end gap-3">
+<button class="px-6 py-2.5 rounded-lg text-sm font-bold text-slate-500 hover:bg-slate-50 transition-colors">Batal</button>
+<button class="bg-maroon-gradient text-white px-8 py-2.5 rounded-lg text-sm font-bold shadow-lg shadow-primary/20 hover:scale-[1.02] active:scale-95 transition-all">
+                    Simpan Data
+                </button>
+</div>
+</div>
+</div>
+</body></html>

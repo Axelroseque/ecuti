@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "tertiary-container": "#004c71",
+              "surface-container-lowest": "#ffffff",
+              "on-background": "#191c1f",
+              "secondary-container": "#fdc355",
+              "surface-bright": "#f8f9fd",
+              "on-secondary-fixed": "#271900",
+              "surface-dim": "#d9dade",
+              "surface-container": "#edeef2",
+              "on-tertiary-fixed": "#001e30",
+              "outline": "#8c716e",
+              "inverse-primary": "#ffb3ac",
+              "surface-container-highest": "#e1e2e6",
+              "on-primary-fixed-variant": "#8a1a1a",
+              "surface-container-high": "#e7e8ec",
+              "on-tertiary-fixed-variant": "#004b70",
+              "error-container": "#ffdad6",
+              "error": "#ba1a1a",
+              "surface": "#f8f9fd",
+              "primary-container": "#8b1a1a",
+              "outline-variant": "#e0bfbc",
+              "on-primary-fixed": "#410003",
+              "on-primary": "#ffffff",
+              "primary": "#690008",
+              "on-secondary-fixed-variant": "#5e4100",
+              "tertiary-fixed": "#cae6ff",
+              "inverse-on-surface": "#eff1f5",
+              "background": "#f8f9fd",
+              "secondary": "#7d5800",
+              "on-surface": "#191c1f",
+              "on-tertiary": "#ffffff",
+              "tertiary-fixed-dim": "#96ccf8",
+              "surface-tint": "#ac322e",
+              "on-primary-container": "#ff9a91",
+              "surface-container-low": "#f2f3f7",
+              "secondary-fixed-dim": "#f6bd50",
+              "secondary-fixed": "#ffdea9",
+              "on-secondary": "#ffffff",
+              "on-surface-variant": "#58413f",
+              "on-secondary-container": "#725000",
+              "on-error-container": "#93000a",
+              "primary-fixed-dim": "#ffb3ac",
+              "on-error": "#ffffff",
+              "inverse-surface": "#2e3134",
+              "on-tertiary-container": "#86bce7",
+              "tertiary": "#003450",
+              "primary-fixed": "#ffdad6",
+              "surface-variant": "#e1e2e6"
+            },
+            fontFamily: {
+              "headline": ["Inter"],
+              "body": ["Inter"],
+              "label": ["Inter"],
+              "mono": ["JetBrains Mono"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .judicial-backdrop {
+            background: radial-gradient(circle at center, rgba(25, 28, 31, 0.4) 0%, rgba(25, 28, 31, 0.7) 100%);
+            backdrop-filter: blur(8px);
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface">
+<!-- Background UI: User Management Table (Dimmed) -->
+<div class="fixed inset-0 flex">
+<!-- SideNavBar Shared Component -->
+<aside class="h-screen w-64 bg-[#f2f3f7] flex flex-col py-8 pl-4">
+<div class="mb-10 pl-2">
+<span class="text-[#690008] font-bold text-xl uppercase tracking-wider">SI-CUTI</span>
+<p class="text-xs text-slate-500 font-medium">Judicial Leave System</p>
+</div>
+<nav class="flex-1 space-y-1">
+<div class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:bg-[#e7e8ec] transition-transform duration-200 hover:translate-x-1 cursor-pointer">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-medium text-sm">Dashboard</span>
+</div>
+<div class="flex items-center gap-3 px-4 py-3 text-[#690008] bg-white font-bold rounded-l-xl">
+<span class="material-symbols-outlined">groups</span>
+<span class="font-medium text-sm">Personnel</span>
+</div>
+<div class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:bg-[#e7e8ec] transition-transform duration-200 hover:translate-x-1 cursor-pointer">
+<span class="material-symbols-outlined">description</span>
+<span class="font-medium text-sm">Leave Requests</span>
+</div>
+<div class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:bg-[#e7e8ec] transition-transform duration-200 hover:translate-x-1 cursor-pointer">
+<span class="material-symbols-outlined">receipt_long</span>
+<span class="font-medium text-sm">Audit Logs</span>
+</div>
+<div class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:bg-[#e7e8ec] transition-transform duration-200 hover:translate-x-1 cursor-pointer">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-medium text-sm">System Settings</span>
+</div>
+</nav>
+</aside>
+<!-- Main Content Area (Background) -->
+<main class="flex-1 bg-surface overflow-hidden">
+<!-- TopAppBar Shared Component -->
+<header class="bg-white/80 backdrop-blur-xl flex justify-between items-center px-6 py-3 w-full border-b border-transparent shadow-sm">
+<h1 class="font-headline font-semibold tracking-tight text-[#690008]">Personnel Management</h1>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-slate-500">notifications</span>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-slate-500">account_circle</span>
+<span class="text-sm font-medium">Court Admin</span>
+</div>
+</div>
+</header>
+<div class="p-8">
+<div class="flex justify-between items-end mb-8">
+<div>
+<h2 class="text-2xl font-bold tracking-tight text-on-surface">Daftar Pegawai</h2>
+<p class="text-slate-500 text-sm">Mengelola aksesibilitas dan data personel instansi.</p>
+</div>
+</div>
+<!-- Table Simulation -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low text-on-surface-variant text-xs uppercase tracking-wider">
+<th class="px-6 py-4 font-semibold">Nama / NIP</th>
+<th class="px-6 py-4 font-semibold">Jabatan</th>
+<th class="px-6 py-4 font-semibold">Status</th>
+<th class="px-6 py-4 font-semibold text-right">Aksi</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container">
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="px-6 py-4">
+<div class="font-bold">Rina Wati</div>
+<div class="font-mono text-xs text-slate-500">199005012022011001</div>
+</td>
+<td class="px-6 py-4 text-sm">Panitera Pengganti</td>
+<td class="px-6 py-4">
+<span class="bg-tertiary-container/10 text-tertiary-container px-2 py-1 rounded text-[10px] font-bold uppercase">Aktif</span>
+</td>
+<td class="px-6 py-4 text-right">
+<span class="material-symbols-outlined text-slate-400 cursor-pointer">more_vert</span>
+</td>
+</tr>
+<tr class="bg-surface-container-low/30">
+<td class="px-6 py-4">
+<div class="font-bold">Budi Santoso</div>
+<div class="font-mono text-xs text-slate-500">198512122010011005</div>
+</td>
+<td class="px-6 py-4 text-sm">Hakim Anggota</td>
+<td class="px-6 py-4">
+<span class="bg-tertiary-container/10 text-tertiary-container px-2 py-1 rounded text-[10px] font-bold uppercase">Aktif</span>
+</td>
+<td class="px-6 py-4 text-right">
+<span class="material-symbols-outlined text-slate-400">more_vert</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</main>
+</div>
+<!-- Modal Overlay -->
+<div class="fixed inset-0 z-[100] flex items-center justify-center judicial-backdrop p-4">
+<!-- Deactivation Confirmation Modal -->
+<div class="bg-surface-container-lowest w-full max-w-md rounded-xl shadow-[0_10px_40px_-10px_rgba(25,28,31,0.2)] overflow-hidden">
+<!-- Header -->
+<div class="px-6 pt-6 pb-4 flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-error-container/30 flex items-center justify-center text-error">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">warning</span>
+</div>
+<h3 class="text-xl font-headline font-bold text-on-surface">Konfirmasi Non-aktifkan Pengguna</h3>
+</div>
+<!-- Body Content -->
+<div class="px-6 py-4 space-y-6">
+<!-- Target User Card -->
+<div class="bg-surface-container-low p-4 rounded-lg border-l-4 border-error">
+<div class="grid grid-cols-1 gap-1">
+<div class="flex justify-between items-baseline">
+<span class="text-[10px] uppercase font-bold tracking-widest text-slate-500">Nama</span>
+<span class="text-sm font-semibold text-on-surface">Rina Wati</span>
+</div>
+<div class="flex justify-between items-baseline">
+<span class="text-[10px] uppercase font-bold tracking-widest text-slate-500">NIP</span>
+<span class="text-sm font-mono text-primary">199005012022011001</span>
+</div>
+</div>
+</div>
+<!-- Consequences List -->
+<div class="space-y-3">
+<p class="text-xs font-bold uppercase text-on-surface-variant tracking-wider">Konsekuensi Tindakan:</p>
+<ul class="space-y-2">
+<li class="flex items-start gap-2 text-sm text-slate-600">
+<span class="text-error font-bold">•</span>
+<span>Tidak bisa login ke sistem</span>
+</li>
+<li class="flex items-start gap-2 text-sm text-slate-600">
+<span class="text-error font-bold">•</span>
+<span>Pengajuan cuti aktif akan dibatalkan</span>
+</li>
+<li class="flex items-start gap-2 text-sm text-slate-600">
+<span class="text-error font-bold">•</span>
+<span>Data riwayat tetap tersimpan</span>
+</li>
+</ul>
+</div>
+<!-- Input Confirmation -->
+<div class="space-y-2">
+<label class="text-xs font-semibold text-on-surface-variant" for="nip_confirmation">Ketik NIP untuk konfirmasi:</label>
+<input class="w-full bg-surface-container-highest border-none rounded focus:ring-2 focus:ring-primary/20 font-mono text-sm px-4 py-3 placeholder:text-slate-400" id="nip_confirmation" placeholder="199005012022011001" type="text"/>
+</div>
+</div>
+<!-- Footer Actions -->
+<div class="px-6 py-6 flex items-center justify-end gap-3 bg-surface-container-low/50">
+<button class="px-5 py-2.5 text-sm font-semibold text-on-surface-variant hover:bg-surface-container-high rounded transition-colors duration-200">
+                    Batal
+                </button>
+<button class="px-6 py-2.5 text-sm font-bold text-white bg-gradient-to-br from-[#690008] to-[#8b1a1a] rounded shadow-md hover:shadow-lg active:scale-95 transition-all duration-200">
+                    Non-aktifkan
+                </button>
+</div>
+</div>
+</div>
+</body></html>

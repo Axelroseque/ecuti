@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+
+<html class="light" lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Verifikasi Pengajuan Cuti - Judicial Leave System</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "secondary-container": "#fdc355",
+                        "primary-fixed-dim": "#ffb3ac",
+                        "on-secondary-fixed-variant": "#5e4100",
+                        "outline-variant": "#e0bfbc",
+                        "on-tertiary-fixed-variant": "#004b70",
+                        "outline": "#8c716e",
+                        "surface-dim": "#d9dade",
+                        "inverse-primary": "#ffb3ac",
+                        "surface": "#f8f9fd",
+                        "error": "#ba1a1a",
+                        "background": "#f8f9fd",
+                        "on-secondary-container": "#725000",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-fixed": "#001e30",
+                        "tertiary": "#003450",
+                        "on-surface": "#191c1f",
+                        "secondary-fixed-dim": "#f6bd50",
+                        "on-primary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "on-secondary": "#ffffff",
+                        "on-primary-container": "#ff9a91",
+                        "primary-fixed": "#ffdad6",
+                        "secondary": "#7d5800",
+                        "surface-variant": "#e1e2e6",
+                        "tertiary-container": "#004c71",
+                        "inverse-on-surface": "#eff1f5",
+                        "surface-tint": "#ac322e",
+                        "surface-container": "#edeef2",
+                        "primary": "#690008",
+                        "inverse-surface": "#2e3134",
+                        "surface-container-high": "#e7e8ec",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-low": "#f2f3f7",
+                        "on-surface-variant": "#58413f",
+                        "on-primary-fixed-variant": "#8a1a1a",
+                        "tertiary-fixed-dim": "#96ccf8",
+                        "primary-container": "#8b1a1a",
+                        "on-background": "#191c1f",
+                        "surface-bright": "#f8f9fd",
+                        "on-primary-fixed": "#410003",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-fixed": "#271900",
+                        "on-tertiary-container": "#86bce7",
+                        "tertiary-fixed": "#cae6ff",
+                        "on-error": "#ffffff",
+                        "surface-container-highest": "#e1e2e6",
+                        "secondary-fixed": "#ffdea9"
+                    },
+                    fontFamily: {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Inter"],
+                        "mono": ["JetBrains Mono"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-full w-64 z-50 bg-slate-50 dark:bg-slate-950 border-r border-slate-200 dark:border-slate-800 flex flex-col p-4 gap-2">
+<div class="mb-8 px-2 py-4">
+<h1 class="text-lg font-bold text-red-900 dark:text-red-500 uppercase tracking-widest">HR Portal</h1>
+<p class="text-xs text-slate-500 font-medium">Judicial Monolith</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800 transition-transform duration-200 hover:translate-x-1 font-['Inter'] text-sm font-medium rounded-lg" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 bg-red-900 text-white rounded-lg shadow-lg shadow-red-900/20 font-['Inter'] text-sm font-medium" href="#">
+<span class="material-symbols-outlined">fact_check</span>
+<span>Verifikasi</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800 transition-transform duration-200 hover:translate-x-1 font-['Inter'] text-sm font-medium rounded-lg" href="#">
+<span class="material-symbols-outlined">group</span>
+<span>Data Pegawai</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800 transition-transform duration-200 hover:translate-x-1 font-['Inter'] text-sm font-medium rounded-lg" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span>Laporan</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800 transition-transform duration-200 hover:translate-x-1 font-['Inter'] text-sm font-medium rounded-lg" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span>Pengaturan</span>
+</a>
+</nav>
+<div class="mt-auto pt-4 border-t border-slate-200/50">
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800 transition-transform duration-200 hover:translate-x-1 font-['Inter'] text-sm font-medium rounded-lg" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span>Logout</span>
+</a>
+</div>
+</aside>
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-40 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl shadow-sm dark:shadow-none ml-64 flex justify-between items-center px-6 py-3" style="width: calc(100% - 16rem);">
+<div class="flex items-center gap-4">
+<div class="relative">
+<span class="absolute inset-y-0 left-0 pl-3 flex items-center text-slate-400">
+<span class="material-symbols-outlined text-sm">search</span>
+</span>
+<input class="bg-surface-container-highest border-none rounded-lg pl-10 pr-4 py-1.5 text-sm w-64 focus:ring-2 focus:ring-red-500 font-mono" placeholder="Search by NIP or Name..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<button class="relative text-slate-600 dark:text-slate-400 hover:bg-slate-50 p-2 rounded-full transition-colors active:scale-95 duration-200">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-1 right-1 w-2 h-2 bg-red-600 rounded-full"></span>
+</button>
+<div class="flex items-center gap-3 pl-4 border-l border-slate-200">
+<div class="text-right">
+<p class="text-xs font-bold text-red-900">Administrator</p>
+<p class="text-[10px] text-slate-500">Super User</p>
+</div>
+<span class="material-symbols-outlined text-3xl text-slate-400">account_circle</span>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="ml-64 pt-20 p-8 min-h-screen">
+<!-- Breadcrumb & Title -->
+<div class="mb-8">
+<nav class="flex items-center gap-2 text-xs font-medium text-slate-500 mb-2">
+<span>Kepegawaian</span>
+<span class="material-symbols-outlined text-xs">chevron_right</span>
+<span class="text-red-900">Verifikasi Pengajuan</span>
+</nav>
+<h2 class="text-3xl font-bold text-red-900 tracking-tight font-headline">Verifikasi Pengajuan Cuti</h2>
+</div>
+<!-- Filters Section -->
+<div class="flex flex-wrap items-center gap-4 mb-8">
+<div class="flex flex-col gap-1.5 min-w-[180px]">
+<label class="text-[10px] font-bold uppercase tracking-wider text-slate-500 ml-1">Filter Bulan</label>
+<select class="bg-surface-container-lowest border-none rounded-lg px-4 py-2.5 text-sm shadow-sm focus:ring-2 focus:ring-red-500 appearance-none cursor-pointer">
+<option>Maret 2024</option>
+<option>April 2024</option>
+<option>Mei 2024</option>
+</select>
+</div>
+<div class="flex flex-col gap-1.5 min-w-[180px]">
+<label class="text-[10px] font-bold uppercase tracking-wider text-slate-500 ml-1">Status Verifikasi</label>
+<select class="bg-surface-container-lowest border-none rounded-lg px-4 py-2.5 text-sm shadow-sm focus:ring-2 focus:ring-red-500 appearance-none cursor-pointer">
+<option>Semua Status</option>
+<option>Pending</option>
+<option>Validated</option>
+<option>Rejected</option>
+</select>
+</div>
+<button class="mt-5 px-6 py-2.5 bg-primary text-white rounded-lg font-semibold text-sm hover:translate-y-[-1px] transition-transform active:scale-95 shadow-lg shadow-red-900/10">
+                Terapkan Filter
+            </button>
+</div>
+<!-- Two Column Layout: Table and Details -->
+<div class="grid grid-cols-1 xl:grid-cols-3 gap-8 items-start">
+<!-- Table Section -->
+<div class="xl:col-span-2 space-y-4">
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low border-b border-outline-variant/20">
+<th class="px-6 py-4 text-[11px] font-bold uppercase tracking-wider text-slate-500">No</th>
+<th class="px-6 py-4 text-[11px] font-bold uppercase tracking-wider text-slate-500">Nama Pegawai</th>
+<th class="px-6 py-4 text-[11px] font-bold uppercase tracking-wider text-slate-500">Jenis Cuti</th>
+<th class="px-6 py-4 text-[11px] font-bold uppercase tracking-wider text-slate-500">Periode</th>
+<th class="px-6 py-4 text-[11px] font-bold uppercase tracking-wider text-slate-500">Status</th>
+<th class="px-6 py-4 text-[11px] font-bold uppercase tracking-wider text-slate-500 text-center">Aksi</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-100">
+<!-- Active Row -->
+<tr class="hover:bg-red-50/30 transition-colors group bg-red-50/50">
+<td class="px-6 py-5 font-mono text-sm">01</td>
+<td class="px-6 py-5">
+<p class="font-bold text-slate-900">Ahmad Fauzi</p>
+<p class="text-xs text-slate-500 font-mono">NIP: 198503122010121001</p>
+</td>
+<td class="px-6 py-5">
+<span class="text-sm font-medium">Cuti Tahunan</span>
+</td>
+<td class="px-6 py-5">
+<p class="text-sm font-mono">28 Mar - 1 Apr</p>
+</td>
+<td class="px-6 py-5">
+<span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-secondary-container/20 text-on-secondary-container">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary mr-2"></span>
+                                        Menunggu
+                                    </span>
+</td>
+<td class="px-6 py-5 text-center">
+<button class="text-red-900 hover:bg-red-100 p-2 rounded-lg transition-colors">
+<span class="material-symbols-outlined">visibility</span>
+</button>
+</td>
+</tr>
+<!-- Warning Row -->
+<tr class="hover:bg-red-50/30 transition-colors group">
+<td class="px-6 py-5 font-mono text-sm">02</td>
+<td class="px-6 py-5">
+<p class="font-bold text-slate-900">Budi Santoso</p>
+<p class="text-xs text-slate-500 font-mono">NIP: 199005222015031002</p>
+</td>
+<td class="px-6 py-5">
+<span class="text-sm font-medium">Cuti Sakit</span>
+</td>
+<td class="px-6 py-5">
+<p class="text-sm font-mono">26 - 27 Mar</p>
+</td>
+<td class="px-6 py-5">
+<span class="inline-flex items-center gap-1.5 text-error font-semibold text-xs">
+<span class="material-symbols-outlined text-[18px]">warning</span>
+                                        Ada Kendala
+                                    </span>
+</td>
+<td class="px-6 py-5 text-center">
+<button class="text-slate-400 hover:bg-slate-100 p-2 rounded-lg transition-colors">
+<span class="material-symbols-outlined">visibility</span>
+</button>
+</td>
+</tr>
+<!-- Ready Row -->
+<tr class="hover:bg-red-50/30 transition-colors group">
+<td class="px-6 py-5 font-mono text-sm">03</td>
+<td class="px-6 py-5">
+<p class="font-bold text-slate-900">Citra Dewi</p>
+<p class="text-xs text-slate-500 font-mono">NIP: 199511302020122003</p>
+</td>
+<td class="px-6 py-5">
+<span class="text-sm font-medium">Cuti Besar</span>
+</td>
+<td class="px-6 py-5">
+<p class="text-sm font-mono">1 Apr - 30 Jun</p>
+</td>
+<td class="px-6 py-5">
+<span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-tertiary-fixed/30 text-tertiary-container border border-tertiary-container/10">
+                                        Siap Verifikasi
+                                    </span>
+</td>
+<td class="px-6 py-5 text-center">
+<button class="text-slate-400 hover:bg-slate-100 p-2 rounded-lg transition-colors">
+<span class="material-symbols-outlined">visibility</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Side Detail Panel -->
+<div class="xl:col-span-1">
+<div class="bg-surface-container-lowest rounded-xl shadow-lg border border-red-900/5 overflow-hidden flex flex-col h-full sticky top-24">
+<div class="p-6 border-b border-slate-100 bg-gradient-to-r from-red-900/5 to-transparent">
+<h3 class="text-lg font-bold text-red-900 mb-1">Detail Validasi</h3>
+<p class="text-sm text-slate-600 font-medium">Ahmad Fauzi</p>
+</div>
+<div class="p-6 space-y-8 flex-1">
+<!-- Checklist Section -->
+<div class="space-y-4">
+<div class="flex items-start gap-4 p-3 rounded-lg hover:bg-slate-50 transition-colors">
+<div class="mt-0.5 flex items-center justify-center w-5 h-5 rounded-md bg-tertiary-container text-white shadow-sm">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'wght' 700;">check</span>
+</div>
+<div>
+<p class="text-sm font-semibold text-slate-900 leading-none mb-1">Saldo cuti mencukupi</p>
+<p class="text-xs text-slate-500 font-mono">Sisa: 8 hari</p>
+</div>
+</div>
+<div class="flex items-start gap-4 p-3 rounded-lg hover:bg-slate-50 transition-colors">
+<div class="mt-0.5 flex items-center justify-center w-5 h-5 rounded-md bg-tertiary-container text-white shadow-sm">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'wght' 700;">check</span>
+</div>
+<div>
+<p class="text-sm font-semibold text-slate-900 leading-none mb-1">Masa kerja memenuhi syarat</p>
+<p class="text-xs text-slate-500">&gt; 1 tahun (Terhitung Jan 2011)</p>
+</div>
+</div>
+<div class="flex items-start gap-4 p-3 rounded-lg hover:bg-slate-50 transition-colors">
+<div class="mt-0.5 flex items-center justify-center w-5 h-5 rounded-md bg-tertiary-container text-white shadow-sm">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'wght' 700;">check</span>
+</div>
+<div>
+<p class="text-sm font-semibold text-slate-900 leading-none mb-1">Dokumen pendukung lengkap</p>
+<p class="text-xs text-red-800 font-medium underline cursor-pointer">Lihat Lampiran.pdf</p>
+</div>
+</div>
+<label class="flex items-start gap-4 p-3 rounded-lg border-2 border-dashed border-red-100 hover:border-red-200 cursor-pointer transition-all group">
+<input class="mt-0.5 w-5 h-5 rounded border-red-200 text-red-900 focus:ring-red-500" type="checkbox"/>
+<span class="text-sm font-medium text-slate-700 leading-tight group-hover:text-red-900">Sesuai Perka BKN No. 24/2017</span>
+</label>
+</div>
+<!-- Notes Area -->
+<div class="space-y-2">
+<label class="text-[10px] font-bold uppercase tracking-wider text-slate-500 ml-1">Catatan Verifikator</label>
+<textarea class="w-full bg-slate-50 border-none rounded-lg p-3 text-sm font-mono h-24 focus:ring-2 focus:ring-red-500 placeholder-slate-400" placeholder="Tambahkan catatan jika pengajuan ditolak atau butuh perbaikan..."></textarea>
+</div>
+</div>
+<div class="p-6 bg-slate-50 border-t border-slate-100 grid grid-cols-2 gap-3">
+<button class="px-4 py-2.5 bg-gradient-to-br from-primary to-primary-container text-white rounded-lg font-bold text-sm shadow-md hover:shadow-red-900/20 active:scale-95 transition-all">
+                            Verifikasi Lolos
+                        </button>
+<button class="px-4 py-2.5 border border-outline text-outline rounded-lg font-bold text-sm hover:bg-slate-100 active:scale-95 transition-all">
+                            Tolak + Catatan
+                        </button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Visual Polish: Ghost background element -->
+<div class="fixed bottom-0 right-0 p-8 opacity-[0.03] pointer-events-none select-none">
+<span class="material-symbols-outlined text-[300px]" style="font-variation-settings: 'wght' 700;">account_balance</span>
+</div>
+</body></html>
